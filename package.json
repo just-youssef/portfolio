@@ -6,11 +6,11 @@
   ],
   "scripts": {
     "dev:client": "cross-env NODE_ENV=development lerna run dev --scope=client",
-    "dev:server": "cross-env NODE_ENV=development lerna run dev --scope=server",
-    "dev": "npm-run-all --parallel dev:client dev:server",
+    "dev:api": "cross-env NODE_ENV=development lerna run dev --scope=api",
+    "dev": "npm-run-all --parallel dev:client dev:api",
     "build": "cross-env NODE_ENV=production lerna run build --scope=client",
     "serve": "cross-env NODE_ENV=production lerna run start --scope=client",
-    "start": "cross-env NODE_ENV=production lerna run start --scope=server"
+    "start": "cross-env NODE_ENV=production lerna run start --scope=api"
   },
   "devDependencies": {
     "cross-env": "^10.0.0",
