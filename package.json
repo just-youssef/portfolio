@@ -1,0 +1,23 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "*"
+  ],
+  "scripts": {
+    "dev:client": "cross-env NODE_ENV=development lerna run dev --scope=client",
+    "dev:server": "cross-env NODE_ENV=development lerna run dev --scope=server",
+    "dev": "npm-run-all --parallel dev:client dev:server",
+    "build": "cross-env NODE_ENV=production lerna run build --scope=client",
+    "serve": "cross-env NODE_ENV=production lerna run start --scope=client",
+    "start": "cross-env NODE_ENV=production lerna run start --scope=server"
+  },
+  "devDependencies": {
+    "cross-env": "^10.0.0",
+    "lerna": "^8.1.9",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "axios": "^1.11.0"
+  }
+}
