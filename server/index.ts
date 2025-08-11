@@ -15,7 +15,6 @@ import ErrorMW from "@/middlewares/error.mw";
 // http server
 import http from "http";
 import { connect } from "mongoose";
-import ServerlessHttp from "serverless-http";
 
 // initialize root path
 const root = path.resolve();
@@ -81,16 +80,12 @@ process.on("unhandledRejection", (reason, promise) => {
 // first connect to mongodb
 await connect(process.env.MONGODB_URI!, { dbName: "portfolio" });
 
-if (NODE_ENV == "development") {
-  // init http server
-  const server = http.createServer(app);
+// init http server
+const server = http.createServer(app);
 
-  // initialize port
-  const port = process.env.PORT;
+// initialize port
+const port = process.env.PORT;
 
-  server.listen(port, () => {
-    console.log(`${NODE_ENV} server running on http://localhost:${port}`);
-  });
-}
-
-export default ServerlessHttp(app);
+server.listen(port, () => {
+  console.log(`${NODE_ENV} server running on http://localhost:${port}`);
+});
