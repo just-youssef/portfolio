@@ -1,22 +1,27 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files first (better for caching)
-COPY package*.json ./
-COPY lerna.json ./
+# Update Alpine packages to avoid vulnerabilities
+RUN apk update && apk upgrade --no-cache
+
+# Copy root package files
+COPY package*.json lerna.json ./
+
+# Copy package.json files for all workspaces (for caching)
 COPY packages/client/package.json packages/client/
 COPY packages/server/package.json packages/server/
 
-# Install dependencies
+# Install dependencies and bootstrap Lerna
+RUN npm install -g lerna
 RUN npm install
+RUN lerna bootstrap
 
-# Copy rest of the files
+# Copy the rest of the source code
 COPY . .
 
-# Build the app
+# Build the client package
 RUN npm run build
 
-# Start command
+# Start the app
 CMD ["npm", "start"]
