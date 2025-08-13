@@ -1,12 +1,7 @@
 "use client";
 
-import {
-  Github,
-  Linkedin,
-  Twitter,
-  ArrowUp,
-  Heart,
-} from "lucide-react";
+import { EMAIL, GITHUB, LINKEDIN, PHONE } from "@/constants";
+import { Github, Linkedin, ArrowUp, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,22 +9,28 @@ const Footer = () => {
   const socialLinks = [
     {
       name: "GitHub",
-      href: "https://github.com",
+      href: GITHUB,
       icon: Github,
-      color: "hover:text-gray-300 hover:bg-gray-800/80 hover:border-gray-600",
     },
     {
       name: "LinkedIn",
-      href: "https://linkedin.com",
+      href: LINKEDIN,
       icon: Linkedin,
-      color:
-        "hover:text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/30",
+    },
+  ];
+
+  const contactLinks = [
+    {
+      name: "Email",
+      text: EMAIL,
+      href: `mailto:${EMAIL}`,
+      icon: Mail,
     },
     {
-      name: "Twitter",
-      href: "https://twitter.com",
-      icon: Twitter,
-      color: "hover:text-sky-400 hover:bg-sky-500/20 hover:border-sky-500/30",
+      name: "Phone",
+      text: PHONE,
+      href: `tel:${PHONE}`,
+      icon: Phone,
     },
   ];
 
@@ -38,68 +39,75 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-black border-t border-gray-800/50 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(64,64,64,0.1)_0%,transparent_50%)]"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_49%,rgba(64,64,64,0.03)_50%,transparent_51%)] bg-[length:20px_20px]"></div>
-      </div>
-
+    <footer
+      id="contact"
+      className="section-pattern bg-gray-800/50 backdrop-blur-md border-t border-gray-800/50"
+    >
       {/* Subtle Glow Elements */}
       <div className="absolute inset-0">
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-gray-800 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
         <div className="absolute bottom-40 right-10 w-80 h-80 bg-gray-700 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
         {/* Main Footer Content */}
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="mb-6">
               <h3 className="text-2xl font-black text-white mb-4">
-                Youssef <span className="text-sky-400">Hussein</span>
+                Youssef <span className="text-gradient-sky">Hussein</span>
               </h3>
               <p className="text-gray-400 leading-relaxed">
-                Full-Stack Web Developer crafting scalable, production-ready
-                applications with modern technologies.
+                Visionary Full-Stack Web Developer crafting revolutionary,
+                production-ready applications that redefine industry standards
+                with cutting-edge technologies.
               </p>
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center space-x-3">
-              {socialLinks.map((social) => {
-                const IconComponent = social.icon;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`group relative w-12 h-12 bg-gray-800/50 border border-gray-700/50 rounded-full flex items-center justify-center text-gray-400 transition-all duration-300 hover:scale-110 ${social.color}`}
-                  >
-                    <IconComponent className="w-5 h-5" />
-                    <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                      {social.name}
-                    </span>
-                  </a>
-                );
-              })}
+            <div className="flex items-center space-x-3 mb-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group relative w-12 h-12 bg-gray-800/50 border border-gray-700/50 rounded-full flex items-center justify-center text-gray-400 transition-all duration-300 hover:scale-110 hover:text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/30`}
+                >
+                  <social.icon className="w-5 h-5" />
+                  <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    {social.name}
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Newsletter/CTA */}
-          <div>
+          <div className="lg:col-span-1">
             <h4 className="text-lg font-bold text-white mb-6">
               Let&apos;s Connect
             </h4>
             <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-              Ready to bring your ideas to life? I&apos;m available for
-              freelance projects and exciting collaborations.
+              Ready to bring your boldest ideas to life? I&apos;m available for
+              groundbreaking freelance projects and transformative
+              collaborations that change the world.
             </p>
-            <button className="w-full px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-black rounded-full font-bold hover:scale-105 transition-all duration-300">
-              Get In Touch
-            </button>
+
+            {/* Contact Info */}
+            <div className="flex gap-x-4 text-sm">
+              {contactLinks.map((contact) => (
+                <a
+                  key={contact.name}
+                  href={contact.href}
+                  className="flex items-center px-6 py-3 bg-gray-800/80 backdrop-blur-sm rounded-full border border-gray-700/50 text-white hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:border-gray-600 shadow-lg shadow-black/30"
+                >
+                  <contact.icon className="w-5 h-5 mr-3" />
+                  {contact.text}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -109,16 +117,12 @@ const Footer = () => {
             {/* Copyright */}
             <div className="flex items-center space-x-2 text-gray-400 text-sm">
               <span>© {currentYear} Youssef Hussein. All rights reserved.</span>
-              <span className="hidden sm:inline">•</span>
-              <span className="hidden sm:inline">Made with</span>
-              <Heart className="w-4 h-4 text-red-400 hidden sm:inline" />
-              <span className="hidden sm:inline">in Egypt</span>
             </div>
 
             {/* Back to Top Button */}
             <button
               onClick={scrollToTop}
-              className="group flex items-center space-x-2 px-4 py-2 bg-gray-800/50 border border-gray-700/50 rounded-full text-gray-400 hover:text-white hover:bg-gray-800 hover:border-gray-600 transition-all duration-300 hover:scale-105"
+              className="group flex items-center space-x-2 px-4 py-2 glass glass-hover hover-lift rounded-full"
             >
               <span className="text-sm font-medium">Back to Top</span>
               <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />

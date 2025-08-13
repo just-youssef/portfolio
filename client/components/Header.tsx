@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, Github, Linkedin, Twitter } from "lucide-react";
+import { Menu, X, Github, Linkedin, Mail, Phone } from "lucide-react";
 import Image from "next/image";
+import { EMAIL, GITHUB, LINKEDIN, PHONE } from "@/constants";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,29 +15,29 @@ const Header = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
   const navigationItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
     { name: "Contact", href: "#contact" },
   ];
 
   const socialLinks = [
-    { name: "GitHub", href: "https://github.com", icon: Github },
-    { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
-    { name: "Twitter", href: "https://twitter.com", icon: Twitter },
+    { name: "GitHub", href: GITHUB, icon: Github },
+    { name: "LinkedIn", href: LINKEDIN, icon: Linkedin },
+    { name: "Email", href: `mailto:${EMAIL}`, icon: Mail },
+    { name: "Phone", href: `tel:${PHONE}`, icon: Phone },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-black/95 backdrop-blur-md border-b border-gray-800/50 shadow-2xl shadow-black/50"
-          : "bg-transparent"
-      }`}
+      className={`sticky top-0 inset-x-0 z-50 transition-all duration-500 glass backdrop-blur-md border-b border-gray-800/50 shadow-2xl shadow-black/50`}
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
@@ -73,35 +74,31 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Social Links & CTA */}
-          <div className="hidden lg:flex items-center space-x-6">
-            {/* Social Links */}
-            <div className="flex items-center space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative w-10 h-10 bg-gray-800/50 border border-gray-700/50 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-800 hover:border-gray-600 transition-all duration-300 hover:scale-110"
-                >
-                  <social.icon className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                  <span className="absolute -bottom-7 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                    {social.name}
-                  </span>
-                </a>
-              ))}
-            </div>
-
-            {/* CTA Button */}
-            <button className="px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-black rounded-full font-bold hover:scale-105 hover:shadow-2xl hover:shadow-sky-500/30 transition-all duration-300 transform hover:-translate-y-1">
-              Hire Me
-            </button>
+          {/* Social Links */}
+          <div className="hidden lg:flex items-center space-x-4">
+            {socialLinks.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                className={`group relative w-12 h-12 bg-gray-800/50 border border-gray-700/50 rounded-full flex items-center justify-center text-gray-400 transition-all duration-300 hover:scale-110 hover:text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/30`}
+                {...(social.href.startsWith("https") && {
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                })}
+              >
+                <social.icon className="w-5 h-5" />
+                <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  {social.name}
+                </span>
+              </a>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => {
+              setIsMenuOpen((prev) => !prev);
+            }}
             className="lg:hidden p-2 text-gray-300 hover:text-white transition-colors duration-300"
           >
             {isMenuOpen ? (
@@ -114,41 +111,37 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden">
-            <div className="py-6 border-t border-gray-800/50">
-              {/* Mobile Navigation Items */}
-              <nav className="space-y-4 mb-8">
-                {navigationItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block text-gray-300 hover:text-white transition-colors duration-300 font-medium py-2 border-l-2 border-transparent hover:border-sky-400 pl-4"
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </nav>
+          <div className="py-6 border-t border-gray-800/50">
+            {/* Mobile Navigation Items */}
+            <nav className="space-y-4 mb-8">
+              {navigationItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block text-gray-300 hover:text-white transition-colors duration-300 font-medium py-2 border-l-2 border-transparent hover:border-sky-400 pl-4"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </nav>
 
-              {/* Mobile Social Links */}
-              <div className="flex items-center space-x-4 mb-6">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 bg-gray-800/50 border border-gray-700/50 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-800 hover:border-gray-600 transition-all duration-300"
-                  >
-                    <social.icon className="w-6 h-6" />
-                  </a>
-                ))}
-              </div>
-
-              {/* Mobile CTA Button */}
-              <button className="w-full px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-black rounded-full font-bold hover:scale-105 transition-all duration-300">
-                Hire Me
-              </button>
+            {/* Mobile Social Links */}
+            <div className="flex items-center space-x-4 mb-6">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group relative w-12 h-12 bg-gray-800/50 border border-gray-700/50 rounded-full flex items-center justify-center text-gray-400 transition-all duration-300 hover:scale-110 hover:text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/30`}
+                >
+                  <social.icon className="w-5 h-5" />
+                  <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    {social.name}
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
         )}
@@ -160,7 +153,7 @@ const Header = () => {
         style={{
           width: isScrolled ? "100%" : "0%",
           opacity: isScrolled ? 1 : 0,
-          zIndex: -10
+          zIndex: -10,
         }}
       />
     </header>

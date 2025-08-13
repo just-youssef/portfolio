@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import "@/styles/globals.css";
 import { Cairo } from "next/font/google";
 import { Footer, Header } from "@/components";
+import { CLIENT } from "@/constants";
 
 export const metadata: Metadata = {
   title: "Youssef Hussein | Portfolio",
@@ -31,17 +32,17 @@ export const metadata: Metadata = {
     "AI",
     "Modern Web",
   ],
-  authors: [{ name: "Youssef Hussein", url: "https://youssefhussein.com" }],
+  authors: [{ name: "Youssef Hussein", url: CLIENT }],
   creator: "Youssef Hussein",
   openGraph: {
     title: "Youssef Hussein | Portfolio",
     description:
       "Explore the work and skills of Youssef Hussein, a Full-Stack Web Developer with expertise in the MERN stack and modern web technologies.",
-    url: "https://youssefhussein.com",
+    url: CLIENT,
     siteName: "Youssef Hussein Portfolio",
     images: [
       {
-        url: "https://youssefhussein.com/og-image.png",
+        url: `${CLIENT}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "Youssef Hussein Portfolio",
@@ -55,11 +56,10 @@ export const metadata: Metadata = {
     title: "Youssef Hussein | Portfolio",
     description:
       "Full-Stack Web Developer crafting scalable, production-ready applications with the MERN stack and modern technologies.",
-    images: ["https://youssefhussein.com/og-image.png"],
+    images: [`${CLIENT}/og-image.png`],
     creator: "@youssefhussein",
   },
-  metadataBase: new URL("https://youssefhussein.com"),
-  themeColor: "#0e1726",
+  metadataBase: new URL(CLIENT),
   robots: {
     index: true,
     follow: true,
