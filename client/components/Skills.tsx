@@ -16,7 +16,7 @@ interface SkillGroup {
 const groupedSkills: SkillGroup[] = [
   // Frontend Skills
   {
-    name: "Frontend Development",
+    name: "Frontend",
     skills: [
       { name: "JavaScript", icon: "/javascript.svg" },
       { name: "React.js", icon: "/reactjs.svg" },
@@ -31,7 +31,7 @@ const groupedSkills: SkillGroup[] = [
 
   // Backend Skills
   {
-    name: "Backend Development",
+    name: "Backend",
     skills: [
       { name: "Node.js", icon: "/nodejs.svg" },
       { name: "Bun", icon: "/bun.svg" },
@@ -47,7 +47,7 @@ const groupedSkills: SkillGroup[] = [
 
   // Other Skills
   {
-    name: "Other Skills",
+    name: "Others",
     skills: [
       { name: "Python", icon: "/python.svg" },
       { name: "TensorFlow", icon: "/tensorflow.svg" },

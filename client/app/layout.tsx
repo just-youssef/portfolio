@@ -7,6 +7,9 @@ import { CLIENT } from "@/constants";
 
 export const metadata: Metadata = {
   title: "Youssef Hussein | Portfolio",
+  icons: {
+    icon: "/code.svg"
+  },
   description:
     "The personal portfolio of Youssef Hussein, a Full-Stack Web Developer specializing in scalable, production-ready MERN stack applications and modern web technologies.",
   keywords: [

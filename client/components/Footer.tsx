@@ -51,9 +51,9 @@ const Footer = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
         {/* Main Footer Content */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Brand Section */}
-          <div className="lg:col-span-1">
+          <div className="col-span-1">
             <div className="mb-6">
               <h3 className="text-2xl font-black text-white mb-4">
                 Youssef <span className="text-gradient-sky">Hussein</span>
@@ -85,7 +85,7 @@ const Footer = () => {
           </div>
 
           {/* Newsletter/CTA */}
-          <div className="lg:col-span-1">
+          <div className="col-span-1">
             <h4 className="text-lg font-bold text-white mb-6">
               Let&apos;s Connect
             </h4>
@@ -96,7 +96,7 @@ const Footer = () => {
             </p>
 
             {/* Contact Info */}
-            <div className="flex gap-x-4 text-sm">
+            <div className="flex flex-wrap gap-4 text-sm">
               {contactLinks.map((contact) => (
                 <a
                   key={contact.name}
@@ -112,32 +112,30 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-gray-800/50">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            {/* Copyright */}
-            <div className="flex items-center space-x-2 text-gray-400 text-sm">
-              <span>© {currentYear} Youssef Hussein. All rights reserved.</span>
-            </div>
-
-            {/* Back to Top Button */}
-            <button
-              onClick={scrollToTop}
-              className="group flex items-center space-x-2 px-4 py-2 glass glass-hover hover-lift rounded-full"
-            >
-              <span className="text-sm font-medium">Back to Top</span>
-              <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />
-            </button>
+        <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 pt-8 border-t border-gray-800/50">
+          {/* Copyright */}
+          <div className="flex items-center space-x-2 text-gray-400 text-sm">
+            <span>© {currentYear} Youssef Hussein. All rights reserved.</span>
           </div>
+
+          {/* Back to Top Button */}
+          <button
+            onClick={scrollToTop}
+            className="max-lg:hidden group flex items-center space-x-2 px-4 py-2 glass glass-hover hover-lift rounded-full"
+          >
+            <span className="text-sm font-medium">Back to Top</span>
+            <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />
+          </button>
+
+          {/* Floating Scroll to Top Button (Mobile) */}
+          <button
+            onClick={scrollToTop}
+            className="lg:hidden w-12 h-12 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full flex items-center justify-center text-black shadow-2xl shadow-sky-500/30 hover:scale-110 transition-all duration-300 z-40"
+          >
+            <ArrowUp className="w-5 h-5" />
+          </button>
         </div>
       </div>
-
-      {/* Floating Scroll to Top Button (Mobile) */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-6 right-6 lg:hidden w-12 h-12 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full flex items-center justify-center text-black shadow-2xl shadow-sky-500/30 hover:scale-110 transition-all duration-300 z-40"
-      >
-        <ArrowUp className="w-5 h-5" />
-      </button>
     </footer>
   );
 };

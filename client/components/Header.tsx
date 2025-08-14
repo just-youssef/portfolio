@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, Github, Linkedin, Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import { EMAIL, GITHUB, LINKEDIN, PHONE } from "@/constants";
+import Link from "next/link";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,8 +24,8 @@ const Header = () => {
 
   const navigationItems = [
     { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
+    { name: "About", href: "#about" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -37,15 +38,15 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 inset-x-0 z-50 transition-all duration-500 glass backdrop-blur-md border-b border-gray-800/50 shadow-2xl shadow-black/50`}
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 glass backdrop-blur-md border-b border-gray-800/50 shadow-2xl shadow-black/50`}
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo & Brand */}
-          <div className="flex items-center space-x-4">
+          <Link href="/" className="flex items-center space-x-4">
             <div className="relative w-10 h-10">
               <Image
-                src="/favicon.ico"
+                src="/code.svg"
                 alt="Portfolio Logo"
                 fill
                 className="object-contain"
@@ -58,7 +59,7 @@ const Header = () => {
                 Full-Stack Developer
               </p>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
