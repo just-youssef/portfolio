@@ -9,8 +9,9 @@ const About = () => {
             About <span className="text-gradient-sky">Me</span>
           </h2>
           <p className="text-gray-300 text-xl max-w-4xl mx-auto leading-relaxed">
-            Computer Engineering graduate from Helwan University with an insatiable passion
-            for creating revolutionary web solutions and AI-powered applications that reshape the digital landscape.
+            Computer Engineering graduate from Helwan University with an
+            insatiable passion for creating revolutionary web solutions and
+            AI-powered applications that reshape the digital landscape.
           </p>
         </div>
 
@@ -23,8 +24,10 @@ const About = () => {
               Frontend Expertise
             </h3>
             <p className="text-gray-400 leading-relaxed">
-              Master of React.js, Next.js, Redux, and TailwindCSS, crafting breathtaking, responsive
-              interfaces that deliver unforgettable user experiences and set new industry standards.
+              Expert in React.js, Next.js, Redux, and TailwindCSS, I design
+              visually stunning, SEO-optimized, and fully responsive user
+              interfaces. My approach ensures exceptional user experiences,
+              lightning-fast performance, and enhanced discoverability.
             </p>
           </div>
 
@@ -36,8 +39,10 @@ const About = () => {
               Backend Development
             </h3>
             <p className="text-gray-400 leading-relaxed">
-              Architect of robust server-side solutions using Node.js, Express.js, MongoDB, and PHP,
-              building scalable applications that handle millions of users with lightning-fast performance.
+              Architect of robust server-side solutions using Node.js, Bun,
+              Express.js, JavaScript, TypeScript, MySQL, and MongoDB—building
+              scalable REST APIs and backend systems that power high-performance
+              applications for millions of users.
             </p>
           </div>
 
@@ -45,10 +50,14 @@ const About = () => {
             <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <Zap className="w-8 h-8 text-black" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">AI & ML</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">
+              AI &amp; Generative ML
+            </h3>
             <p className="text-gray-400 leading-relaxed">
-              Pioneer in AI & ML innovation using TensorFlow, Keras, and OpenCV, creating intelligent
-              features that push the boundaries of what&apos;s possible and revolutionize user interactions.
+              Innovator in artificial intelligence and generative machine
+              learning, leveraging TensorFlow and Keras to build intelligent,
+              creative solutions that redefine user experiences and unlock new
+              possibilities in digital interaction.
             </p>
           </div>
         </div>
