@@ -112,11 +112,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 pt-8 border-t border-gray-800/50">
+        <div className="flex items-center justify-between pt-8 border-t border-gray-800/50">
           {/* Copyright */}
-          <div className="flex items-center space-x-2 text-gray-400 text-sm">
-            <span>© {currentYear} Youssef Hussein. All rights reserved.</span>
-          </div>
+          <span className="text-gray-400 text-sm">
+            © {currentYear} Youssef Hussein. All rights reserved.
+          </span>
 
           {/* Back to Top Button */}
           <button

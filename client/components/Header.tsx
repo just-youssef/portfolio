@@ -43,13 +43,13 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo & Brand */}
-          <Link href="/" className="flex items-center space-x-4">
-            <div className="relative w-10 h-10">
+          <Link href="/" className="flex items-center gap-x-4">
+            <div className="relative w-12 h-12">
               <Image
                 src="/code.svg"
                 alt="Portfolio Logo"
                 fill
-                className="object-contain"
+                className="object-contain shrink-0"
                 priority
               />
             </div>

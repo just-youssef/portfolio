@@ -223,7 +223,3 @@ h1, h2, h3, h4, h5, h6 {
 ::-moz-selection {
   @apply bg-sky-400/30 text-white;
 }
-
-.skill-icon{
-  @apply w-10 h-10;
-}

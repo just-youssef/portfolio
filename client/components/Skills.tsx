@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useEffect } from "react";
-import { ReactSVG } from "react-svg";
 
 interface Skill {
   name: string;
@@ -144,12 +144,16 @@ const SkillRow = ({
             key={`${skill.name}-${index}`}
             className="flex gap-x-2 items-center justify-center group/skill min-w-40"
           >
-            <ReactSVG
-              src={skill.icon}
-              beforeInjection={(svg) => {
-                svg.classList.add("skill-icon");
-              }}
-            />
+            <div className="relative w-10 h-10">
+              <Image
+                src={skill.icon}
+                alt={skill.name}
+                fill
+                className="object-contain shrink-0"
+                priority
+              />
+            </div>
+
             <span className="text-gray-300 text-sm font-medium text-center group-hover/skill:text-white transition-colors duration-300">
               {skill.name}
             </span>
@@ -162,16 +166,21 @@ const SkillRow = ({
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-16 px-6 bg-gray-800/50 backdrop-blur-md border-t border-gray-800/50">
+    <section
+      id="skills"
+      className="py-16 px-6 bg-gray-800/50 backdrop-blur-md border-t border-gray-800/50"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl font-black text-white mb-8">
             Technical <span className="text-gradient-blue">Skills</span>
           </h2>
           <p className="text-gray-300 text-xl max-w-4xl mx-auto leading-relaxed">
-            Commanding mastery of revolutionary technologies that define the digital frontier. From orchestrating 
-            pixel-perfect user experiences to engineering bulletproof backend architectures, I infuse 
-            every line of code with innovation, precision, and the relentless pursuit of excellence.
+            Commanding mastery of revolutionary technologies that define the
+            digital frontier. From orchestrating pixel-perfect user experiences
+            to engineering bulletproof backend architectures, I infuse every
+            line of code with innovation, precision, and the relentless pursuit
+            of excellence.
           </p>
         </div>
 

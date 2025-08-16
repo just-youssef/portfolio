@@ -7,13 +7,6 @@ const Hero = () => {
       id="home"
       className="section-pattern flex flex-col items-center justify-center bg-gradient-to-bl from-black via-gray-800/50 to-black py-16 mt-20 gap-12 relative"
     >
-      {/* Subtle Glow Elements */}
-      <div className="absolute inset-0 z-10">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gray-800 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" />
-        <div className="absolute top-40 right-10 w-80 h-80 bg-gray-700 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-pulse animation-delay-2000" />
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-gray-800 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-pulse animation-delay-4000" />
-      </div>
-
       <div className="inline-flex z-20 items-center px-6 py-3 glass glass-hover shadow-glow-sky rounded-full animate-fade-in-up">
         <Star className="w-4 h-4 text-yellow-400 mr-3" />
         <span className="text-sky-400 text-sm font-medium tracking-wide">
@@ -22,7 +15,7 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative px-6 max-w-7xl mx-auto flex max-lg:flex-col justify-between max-lg:items-center gap-12">
+      <div className="relative px-6 max-w-7xl mx-auto flex max-lg:flex-col justify-between items-center gap-12">
         <div className="flex flex-col gap-y-8">
           <h1 className="text-6xl md:text-8xl font-black text-white animate-fade-in-up animation-delay-200 leading-tight">
             Hi, {"I'm"}
@@ -41,11 +34,11 @@ const Hero = () => {
         </div>
 
         <Image
-          src="/code.svg"
+          src="/profile.png"
           alt="Hero"
           width={400}
           height={400}
-          className="object-contain animate-fade-in-up animation-delay-300 shrink-0"
+          className="object-contain aspect-square animate-fade-in-up animation-delay-300 rounded-full"
         />
       </div>
 
