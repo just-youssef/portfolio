@@ -1,5 +1,6 @@
-import { ChevronDown, Star } from "lucide-react";
+import { ChevronDown, Download, Star } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -15,7 +16,7 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative px-6 max-w-7xl mx-auto flex max-lg:flex-col justify-between items-center gap-12">
+      <div className="relative z-20 px-6 max-w-7xl mx-auto flex max-lg:flex-col justify-between items-center gap-12">
         <div className="flex flex-col gap-y-8">
           <h1 className="text-6xl md:text-8xl font-black text-white animate-fade-in-up animation-delay-200 leading-tight">
             Hi, {"I'm"}
@@ -31,6 +32,16 @@ const Hero = () => {
               cutting-edge technologies.
             </p>
           </div>
+
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`/${encodeURIComponent("Youssef Hussein Ahmed.pdf")}`}
+            className="btn-primary w-fit text-lg flex items-center gap-x-2 animate-fade-in-up animation-delay-600"
+          >
+            <Download className="w-6 h-6" />
+            Download Resume
+          </Link>
         </div>
 
         <Image
@@ -38,7 +49,7 @@ const Hero = () => {
           alt="Hero"
           width={400}
           height={400}
-          className="object-contain aspect-square animate-fade-in-up animation-delay-300 rounded-full"
+          className="object-contain aspect-square animate-fade-in-up animation-delay-400 rounded-full"
         />
       </div>
 
