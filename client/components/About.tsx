@@ -26,8 +26,10 @@ const About = () => {
             <p className="text-gray-400 leading-relaxed">
               Expert in React.js, Next.js, Redux, and TailwindCSS, I design
               visually stunning, SEO-optimized, and fully responsive user
-              interfaces. My approach ensures exceptional user experiences,
-              lightning-fast performance, and enhanced discoverability.
+              interfaces. I excel at UI/UX design, crafting intuitive and
+              engaging digital experiences that delight users. My approach
+              ensures exceptional user experiences, lightning-fast performance,
+              and enhanced discoverability.
             </p>
           </div>
 
@@ -39,10 +41,13 @@ const About = () => {
               Backend Development
             </h3>
             <p className="text-gray-400 leading-relaxed">
-              Architect of robust server-side solutions using Node.js, Bun,
-              Express.js, JavaScript, TypeScript, MySQL, and MongoDB—building
-              scalable REST APIs and backend systems that power high-performance
-              applications for millions of users.
+              I engineer resilient, scalable backend systems and APIs using
+              Node.js, Bun, Express.js, JavaScript, TypeScript, MySQL, and
+              MongoDB—delivering high-performance solutions that effortlessly
+              support millions of users. My expertise extends to DevOps, where I
+              implement CI/CD pipelines, automate deployments, and orchestrate
+              cloud infrastructure to ensure smooth, reliable, and continuous
+              delivery.
             </p>
           </div>
 
@@ -51,13 +56,15 @@ const About = () => {
               <Zap className="w-8 h-8 text-black" />
             </div>
             <h3 className="text-2xl font-bold text-white mb-4">
-              AI &amp; Generative ML
+              AI &amp; Generative AI Integration
             </h3>
             <p className="text-gray-400 leading-relaxed">
-              Innovator in artificial intelligence and generative machine
-              learning, leveraging TensorFlow and Keras to build intelligent,
-              creative solutions that redefine user experiences and unlock new
-              possibilities in digital interaction.
+              I specialize in integrating generative AI models directly into web
+              applications, enabling the creation of intelligent, interactive,
+              and creative digital experiences that redefine user expectations.
+              Additionally, I am skilled in building neural networks with
+              TensorFlow and Keras, further enhancing the capabilities of modern
+              web solutions.
             </p>
           </div>
         </div>
